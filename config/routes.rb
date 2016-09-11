@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'tweets#index'
   get 'tweets' => 'tweets#index'    #ツイート一覧画面
   get 'tweets/new' => 'tweets#new'    #ツイート投稿画面
-  post 'tweets' => 'tweets#create'      #ツイート投稿機能
+  post 'tweets' => 'tweets#create'    #新規投稿
+  get 'users/:id' => 'users#show'     #myページへのルティング
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
