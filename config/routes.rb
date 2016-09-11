@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'tweets#index'
-  get 'tweets' => 'tweets#index'    #ツイート一覧画面
-  get 'tweets/new' => 'tweets#new'    #ツイート投稿画面
-  post 'tweets' => 'tweets#create'    #新規投稿
-  delete 'tweets/:id' => 'tweets#destroy'
-  patch 'tweets/:id' => 'tweets#update'
-  get 'tweets/:id/edit' => 'tweets#edit'
-  get 'users/:id' => 'users#show'     #myページへのルティング
+  resources :tweets do        #tweets_controller
+    resources :comments, only: [:create]
+  end
+  resources :users, only: [:show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
