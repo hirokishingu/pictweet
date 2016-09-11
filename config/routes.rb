@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'tweets/new' => 'tweets#new'    #ツイート投稿画面
   post 'tweets' => 'tweets#create'    #新規投稿
   delete 'tweets/:id' => 'tweets#destroy'
+  patch 'tweets/:id' => 'tweets#update'
+  get 'tweets/:id/edit' => 'tweets#edit'
   get 'users/:id' => 'users#show'     #myページへのルティング
 
 
